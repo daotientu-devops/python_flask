@@ -1,0 +1,20 @@
+<html>
+   <body>
+      {% with messages = get_flashed_messages() %}
+         {% if messages %}
+            <ul>
+               {% for message in messages %}
+               <li>{{message}}</li>
+               {% endfor %}         
+            </ul>
+         {% endif %}
+      {% endwith %}
+      <h1>Flask Message Flashing Example</h1>
+      <p>Do you want to <a href="{{url_for('login')}}"><b>Log in?</b></a></p>
+      <form action = "/setcookie" method = "POST">
+         <p><h3>Enter userID</h3></p>
+         <p><input type = 'text' name = 'nm'/></p>
+         <p><input type = 'submit' value = 'Login'/></p>
+      </form>
+   </body>
+</html>

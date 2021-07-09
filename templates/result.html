@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+    Result of addition: {{msg}}
+    <h2><a href="\">Go back to homepage</h2>
+    {% if result is defined %}
+    <table border=1>
+        {% for key, value in result.items() %}
+            <tr>
+                <th>{{key}}</th>
+                <th>{{value}}</th>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>

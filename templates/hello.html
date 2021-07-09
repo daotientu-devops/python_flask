@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="{{url_for('static', filename='hello.js')}}"></script>
+</head>
+<body>
+    <h1>Hello {{name}}!</h1>
+    <input type="button" onclick="sayHello()" value="Say Hello"/>
+    {% if marks > 50 %}
+        <h1>Your result is pass!</h1>
+    {% else %}
+        <h1>Your result is fail</h1>
+    {% endif %}
+</body>
+</html>
