@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+   <body>
+      <h2>Detect Language</h2>
+       <form action = "http://localhost:5000/detect-language" method = "post">
+          <dl>
+             <dt>Language:
+                <input type=text name=language value="{{request.form.language}}">
+             </dt>
+          </dl>
+          <p><input type=submit value=Detect></p>
+       </form>
+    </body>
+</html>

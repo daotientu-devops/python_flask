@@ -5,8 +5,17 @@ from flask.templating import render_template
 from werkzeug.utils import redirect, secure_filename
 import sqlite3 as sql
 from forms import ContactForm
+from langdetect import detect
 app = Flask(__name__)
 app.secret_key = 'dadadadada';
+@app.route('/detect-language', methods = ['GET', 'POST'])
+def detectLanguage():
+    if request.method == 'POST':
+        language = request.form['language'];
+        return detect(language);
+    if request.method == 'GET':
+        return render_template('detect_language.html')
+    return render_template('detect_language.html')
 @app.route('/contact', methods = ['GET', 'POST'])
 def contact():
     form = ContactForm()
@@ -86,4 +95,4 @@ def uploader_file():
         f.save(secure_filename(f.filename))
         return 'File uploaded successfully'
 if __name__ == '__main__':
-    app.run(debug = False)
+    app.run(debug = True)
